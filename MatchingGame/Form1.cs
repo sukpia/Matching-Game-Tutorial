@@ -205,13 +205,11 @@ namespace MatchingGame
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            int hours = DateTime.Now.Hour - startTime.Hour;
-            int minutes = DateTime.Now.Minute - startTime.Minute;
-            int seconds = DateTime.Now.Second - startTime.Second;
-
-            string timeSring = hours + ":" + minutes + ":" + seconds;
-
-            lblTimer2.Text = timeSring;
+            TimeSpan ts;
+            ts = DateTime.Now.Subtract(startTime);
+            string playTime = string.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds);
+            
+            lblTimer2.Text = playTime;
         }
     }
 }
